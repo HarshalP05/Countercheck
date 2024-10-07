@@ -71,3 +71,13 @@
     display: flex;
     justify-content: center;
   }
+
+
+
+  @media (max-width:480px) {
+       .feedback-container{
+         padding:30px;
+         width: 380px;
+
+       }
+  }
