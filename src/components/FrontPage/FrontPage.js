@@ -1,10 +1,65 @@
-import React from 'react';
+import React , { useState }from 'react';
 import './FrontPage.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
-
-
-
+import { db } from '../../firebaseConfig';
+import { collection, addDoc, query, where, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import emailjs from 'emailjs-com'; // Import EmailJS
 const Home = () => {
+  const [phone, setPhone] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [concern, setConcern] = useState('');
+  const [queryNumber, setQueryNumber] = useState(1); // Initialize the query number
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Generate a unique ID in the format query_name_query_no
+    const uniqueId = `query_${name.replace(/\s+/g, '_').toLowerCase()}_query_${queryNumber}`;
+  
+    // Check for empty fields
+    if (!phone || !name || !email || !concern) {
+      alert('Please fill in all fields before submitting.');
+      return; // Exit the function if any field is empty
+    }
+  
+    try {
+      // Add a new document with a generated ID to Firestore
+      await addDoc(collection(db, 'contacts'), {
+        phone,
+        name,
+        email,
+        concern,
+        uniqueId,
+        createdAt: new Date(), // Optional: timestamp
+      });
+  
+      // Send an email using EmailJS
+      await emailjs.send('service_0isgodd', 'template_lg8kv1o', {
+        phone,
+        name,
+        email,
+        concern,
+        uniqueId,
+      }, 'kwWlF9HP_LQ3slrt9');
+  
+      // Clear the form after submission
+      setPhone('');
+      setName('');
+      setEmail('');
+      setConcern('');
+  
+      // Optionally increment the query number for the next submission
+      setQueryNumber(queryNumber + 1);
+  
+      alert('Your response has been submitted successfully, and a copy has been sent to your email!');
+    } catch (error) {
+      console.error('Error adding document or sending email: ', error);
+      alert('There was an error submitting your response.');
+    }
+  };
+  
+
   return (
     <>
       <section >
@@ -19,8 +74,8 @@ const Home = () => {
           </div>
           <ul>
             <li><a className="active" href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/References" target="_blank" rel="noopener noreferrer">References</a></li>
+            <li><a href="https://viurtuonavi-aboutus.vercel.app/">About</a></li>
+            <li><a href="/Walkthrough" target="_blank" rel="noopener noreferrer">Walkthrough</a></li>
             <li><a href="/feedback">Feedback</a></li>
             <li><a href="#contact">Contact</a></li>
 
@@ -90,15 +145,50 @@ const Home = () => {
       </section>
 
       <section id="contact" className="contact">
-        <h2 className="conh2">Contact Us</h2>
-        <div className="form">
-          <input type="text" className="form-input" name="phone" placeholder="Enter Your Phone number" />
-          <input type="text" className="form-input" name="name" placeholder="Enter Your Name" />
-          <input type="text" className="form-input" name="email" placeholder="Enter Your Email" />
-          <textarea className="form-input" name="concern" cols="30" rows="10" placeholder="Please Elaborate your Concern"></textarea>
-          <button className="sub-btn">Submit Response</button>
-        </div>
-      </section>
+  <h2 className="conh2">Contact Us</h2>
+  <form className="form" onSubmit={handleSubmit}>
+    <input 
+      type="text" 
+      className="form-input" 
+      name="phone" 
+      placeholder="Enter Your Phone number" 
+      value={phone} 
+      onChange={(e) => setPhone(e.target.value)} 
+      required
+    />
+    <input 
+      type="text" 
+      className="form-input" 
+      name="name" 
+      placeholder="Enter Your Name" 
+      value={name} 
+      onChange={(e) => setName(e.target.value)} 
+      required
+    />
+    <input 
+      type="text" 
+      className="form-input" 
+      name="email" 
+      placeholder="Enter Your Email" 
+      value={email} 
+      onChange={(e) => setEmail(e.target.value)} 
+      required
+    />
+    <textarea 
+      className="form-input" 
+      name="concern" 
+      cols="30" 
+      rows="10" 
+      placeholder="Please Elaborate your Concern" 
+      value={concern} 
+      onChange={(e) => setConcern(e.target.value)} 
+      required
+    />
+    <button type="submit" className="sub-btn">Submit Response</button>
+  </form>
+</section>
+
+  
 
       <section className="footer">
         <div className="content">

@@ -8,6 +8,8 @@ viewBox="0 0 5406 2216">
   <style>
     a {
       cursor: pointer;
+       user-select: none;
+       color:black;
     }
   </style>
 <g font-family="sans-serif" font-weight="bold">
@@ -970,7 +972,7 @@ viewBox="0 0 5406 2216">
 
 <line x1="7423.90586" y1="1300.98742" x2="7433.90586" y2="1315.98742"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(9914.81853,716.32337)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#dddddd"/>
+<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(9914.81853,716.32337)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-411,-375 L411,-375 411,375 -411,375 z"/>
 </g>
@@ -980,7 +982,7 @@ viewBox="0 0 5406 2216">
 <text y="-300" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6517</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(730.92338,2374.77544)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-250,564 L-250,-564 250,-564 250,564 z" fill="#dddddd"/>
+<path d="M-250,564 L-250,-564 250,-564 250,564 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(730.92338,2374.77544)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-250,564 L-250,-564 250,-564 250,564 z"/>
 </g>
@@ -988,7 +990,7 @@ viewBox="0 0 5406 2216">
 <text y="-50" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6507LA</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(900.95658,3827.67958)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#dddddd"/>
+<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(900.95658,3827.67958)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-411,-375 L411,-375 411,375 -411,375 z"/>
 </g>
@@ -998,7 +1000,7 @@ viewBox="0 0 5406 2216">
 <text y="-300" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6506</text>
 </g></a>  
 <g transform="translate(0,0.1295) scale(0.49993) translate(900.95658,609.2175)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#dddddd"/>
+<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(900.95658,609.2175)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-411,-375 L411,-375 411,375 -411,375 z"/>
 </g>
@@ -1009,7 +1011,7 @@ viewBox="0 0 5406 2216">
 <text y="-300" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6508</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,624.55078)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,624.55078)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1020,7 +1022,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6509</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(4347.1159,1645.48874)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#dddddd"/>
+<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(4347.1159,1645.48874)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-150 L247,-150 247,150 -247,150 z"/>
 </g>
@@ -1028,7 +1030,7 @@ viewBox="0 0 5406 2216">
 <text y="-30" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6511</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(4951.91533,1645.48874)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#dddddd"/>
+<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(4951.91533,1645.48874)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-150 L247,-150 247,150 -247,150 z"/>
 </g>
@@ -1036,7 +1038,7 @@ viewBox="0 0 5406 2216">
 <text y="-30" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6512</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(5557.30611,1645.48874)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#dddddd"/>
+<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(5557.30611,1645.48874)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-150 L247,-150 247,150 -247,150 z"/>
 </g>
@@ -1044,7 +1046,7 @@ viewBox="0 0 5406 2216">
 <text y="-30" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6513</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(6313.07201,1645.48874)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-337,-150 L337,-150 337,150 -337,150 z" fill="#dddddd"/>
+<path d="M-337,-150 L337,-150 337,150 -337,150 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(6313.07201,1645.48874)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-337,-150 L337,-150 337,150 -337,150 z"/>
 </g> <a id="refer14">
@@ -1052,7 +1054,7 @@ viewBox="0 0 5406 2216">
 <text y="-30" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6514FC</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(8717.82908,1320.50958)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-319.5,-225 L319.5,-225 319.5,225 -319.5,225 z" fill="#dddddd"/>
+<path d="M-319.5,-225 L319.5,-225 319.5,225 -319.5,225 z" fill="#202022 "/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(8717.82908,1320.50958)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-319.5,-225 L319.5,-225 319.5,225 -319.5,225 z"/>
 </g>
@@ -1062,7 +1064,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">Faculty</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,3073.57802)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,3073.57802)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1072,7 +1074,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6505</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(3428.26312,624.55078)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(3428.26312,624.55078)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1082,14 +1084,14 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6510</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(10084.85173,2105.47668)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M250,-564 L250,564 -250,564 -250,-564 z" fill="#dddddd"/>
+<path d="M250,-564 L250,564 -250,564 -250,-564 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(10084.85173,2105.47668)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M250,-564 L250,564 -250,564 -250,-564 z"/>
 </g>
 <a  id="refer18"><g transform="translate(0,0.1295) scale(0.49993) translate(10084.85173,2105.47668) rotate(90) translate(0,125)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
 <text y="-50" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6518LA</text>
 </g></a><g transform="translate(0,0.1295) scale(0.49993) translate(9914.81853,3862.11263)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#dddddd"/>
+<path d="M-411,-375 L411,-375 411,375 -411,375 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(9914.81853,3862.11263)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-411,-375 L411,-375 411,375 -411,375 z"/>
 </g>
@@ -1099,7 +1101,7 @@ viewBox="0 0 5406 2216">
 <text y="-300" font-size="250" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6519</text>
 </g> </a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(7269.54042,3683.0995)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(7269.54042,3683.0995)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1109,7 +1111,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6501</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(7129.77419,619.93665)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#dddddd"/>
+<path d="M-247,-150 L247,-150 247,150 -247,150 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(7129.77419,619.93665)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-150 L247,-150 247,150 -247,150 z"/>
 </g>
@@ -1118,7 +1120,7 @@ viewBox="0 0 5406 2216">
 <text y="-90" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6515</text>
 
 </g></a><g transform="translate(0,0.1295) scale(0.49993) translate(7854.06213,637.19881)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(7854.06213,637.19881)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1128,7 +1130,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6516</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,3770.99012)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(2735.191,3770.99012)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g> <a id="refer4">
@@ -1137,7 +1139,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6504</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(3428.26312,3538.51942)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(3428.26312,3538.51942)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1146,7 +1148,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6503</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(6560.07201,3683.0995)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#dddddd"/>
+<path d="M-247,-225 L247,-225 247,225 -247,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(6560.07201,3683.0995)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-247,-225 L247,-225 247,225 -247,225 z"/>
 </g>
@@ -1156,7 +1158,7 @@ viewBox="0 0 5406 2216">
 <text y="-180" font-size="150" stroke="black" stroke-width="0.30004" fill="white" text-anchor="middle">6502</text>
 </g></a>
 <g transform="translate(0,0.1295) scale(0.49993) translate(1902.98004,247.5)" stroke="#dddddd" stroke-width="0.60008" opacity="1" fill="none">
-<path d="M-371,-225 L371,-225 371,225 -371,225 z" fill="#dddddd"/>
+<path d="M-371,-225 L371,-225 371,225 -371,225 z" fill="#202022"/>
 </g><g transform="translate(0,0.1295) scale(0.49993) translate(1902.98004,247.5)" stroke="#000000" stroke-width="0.60008" opacity="1" fill="none">
 <path d="M-371,-225 L371,-225 371,225 -371,225 z"/>
 </g>

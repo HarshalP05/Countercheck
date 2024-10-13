@@ -147,6 +147,7 @@ function Admin({ userDetails, userDocId }) {
   const generateClassroomNumbers = (floorNumber) => {
     const prefix = floorNumber.toString().padStart(2, '6');
     return [
+      `${prefix}13`,
       `${prefix}15`,
       `${prefix}14`,
       `${prefix}16`,

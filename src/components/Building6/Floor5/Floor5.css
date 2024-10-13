@@ -154,7 +154,7 @@
 }
 
 h2.h2 {
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -171,7 +171,7 @@ h2.h2 {
     transform: rotate(90deg);
     width: 100vw;
     height: 75vw;
-    margin-top: 20px;
+    margin-top: 95px;
   }
 
   #popup {
