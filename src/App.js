@@ -9,6 +9,7 @@ import FrontPage from './components/FrontPage/FrontPage'; // Import FrontPage co
 import References from './components/References/References';
 import Floor5 from './components/Building6/Floor5/Floor5';
 import Feedback from './components/Feedback/Feedback';
+import AboutUs from './components/AboutUs/AboutUs';
 function App() {
   const [userDetails, setUserDetails] = useState(null); // State to store user details
   const [userDocId, setUserDocId] = useState(null); // State to store user document ID
@@ -51,6 +52,7 @@ function App() {
         {/* <Route path="/References" element={<References />} /> */}
         <Route path='/feedback' element={<Feedback/>}/>
         <Route path="/Floor5" element={<Floor5 />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
       </Routes>
     </Router>
   );
