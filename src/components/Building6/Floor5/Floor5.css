@@ -197,6 +197,12 @@ h2.h2 {
   .h2 {
     font-size: 1.1rem;
   }
+
+
+  div#popup16.popup.p-3.border.rounded.shadow{
+    position: fixed;
+    
+}
   
 }
 
