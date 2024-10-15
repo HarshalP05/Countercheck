@@ -6,8 +6,9 @@
   max-width: 800px;
   margin: 0 auto;
   border: 5px solid gray;
+  border-radius: 40px;
 
-  margin-top: 400px;
+  margin-top: 75px;
 }
 
 /* Rectangle Styles */
@@ -294,6 +295,7 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 400px;
   width: 600px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -347,7 +349,7 @@ button:hover {
   border: none;
   font-size: 18px;
   color: #333;
-  position: absolute;
+  position:absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
@@ -356,3 +358,7 @@ button:hover {
 .modal-close-button:hover {
   color: red;
 }
+
+
+
+

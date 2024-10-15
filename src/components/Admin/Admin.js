@@ -22,8 +22,14 @@ function Admin() {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const [selectedFloor, setSelectedFloor] = useState(null); // State for selected floor
   const [modalIsOpen, setModalIsOpen] = useState(false); // State for modal
+  const [department, setDepartment] = useState(''); // State for department
+
 
   const navigate = useNavigate();
+
+  const handleUsernav = () => {
+    navigate('/User'); 
+  }
 
   const handleLogout = async () => {
     try {
@@ -43,6 +49,7 @@ function Admin() {
         await updateDoc(teacherRef, {
           name: teacherName,
           classroom: classroom,
+          department:department,
           designation: designation,
           daysAvailable: daysAvailable,
           floor: floor,
@@ -54,6 +61,7 @@ function Admin() {
         await addDoc(collection(db, 'teachers'), {
           name: teacherName,
           classroom: classroom,
+          department:department,
           designation: designation,
           daysAvailable: daysAvailable,
           floor: floor,
@@ -73,6 +81,7 @@ function Admin() {
   const resetForm = () => {
     setTeacherName('');
     setClassroom('');
+    setDepartment('');
     setDesignation('');
     setDaysAvailable('');
     setFloor('');
@@ -114,11 +123,13 @@ function Admin() {
     setSelectedTeacher(teacher);
     setTeacherName(teacher.name);
     setClassroom(teacher.classroom);
+    setDepartment(teacher.department);
     setDesignation(teacher.designation);
     setDaysAvailable(teacher.daysAvailable);
     setFloor(teacher.floor);
     setImageLink(teacher.imageLink);
     setPersonalWebsite(teacher.personalWebsite);
+    setModalIsOpen(false); // Close the modal after loading the teacher's data
   };
 
   // Function to handle deleting a teacher
@@ -164,6 +175,18 @@ function Admin() {
             required
           />
         </div>
+        <div>
+  <label>Department:</label>
+  <input
+    type="text"
+    placeholder='Enter Department'
+    value={department}
+    onChange={(e) => setDepartment(e.target.value)}
+    required
+  />
+</div>
+
+
         <div>
           <label>Designation:</label>
           <input
@@ -219,6 +242,7 @@ function Admin() {
           <button type="submit">{editMode ? 'Update Teacher' : 'Add Teacher'}</button>
         </div>
         <button type="button" onClick={handleLogout}>Logout</button>
+        <button type="button" onClick={handleUsernav}> User View</button>
       </form>
 
       {/* Floors Button */}
@@ -269,6 +293,7 @@ function Admin() {
           <div className="teacher-info">
             <h2>{teacher.name}</h2>
             <p><strong>Classroom:</strong> {teacher.classroom}</p>
+            <p><strong>Department:</strong> {teacher.department}</p>
             <p><strong>Designation:</strong> {teacher.designation}</p>
             <p><strong>Days Available:</strong> {teacher.daysAvailable}</p>
             <p><strong>Floor:</strong> {teacher.floor}</p>
