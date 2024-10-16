@@ -1,69 +1,88 @@
+/* User.css */
+
 /* Styles for the Logout button */
 .btn-logout {
-    background-color: #8B4513; /* Brown color */
-    color: white;              /* White text color */
-    border: none;              /* Remove default border */
-    padding: 10px 20px;        /* Add padding */
-    font-size: 16px;           /* Set font size */
-    cursor: pointer;           /* Change cursor to pointer */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    margin-top: 20px; /* Space above the button */
-  }
-  
-  .btn-logout:hover {
-    background-color: #A0522D; /* Darker brown on hover */
-  }
-  
-  /* Table styles */
+  background-color: #8B4513; /* Brown color */
+  color: white;              /* White text color */
+  border: none;              /* Remove default border */
+  padding: 10px 20px;        /* Add padding */
+  font-size: 16px;           /* Set font size */
+  cursor: pointer;           /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-top: 20px;         /* Space above the button */
+}
+
+.btn-logout:hover {
+  background-color: #A0522D; /* Darker brown on hover */
+}
+
+/* Container for user details and search/filter inputs */
+.user-container {
+  max-width: 1200px; /* Set a max width */
+  margin: 0 auto;    /* Center the container */
+  padding: 20px;     /* Add some padding */
+  text-align: center; /* Center-align text */
+}
+
+/* Search and filter styles */
+.search-filter {
+  margin: 20px 0; /* Space around the filter section */
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Ensure table borders collapse nicely */
+  margin-top: 20px; /* Space above the table */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd; /* Ensure cells have a border */
+}
+
+.table th {
+  background-color: #f4f4f4; /* Slightly gray background for header */
+}
+
+.table img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Circular images */
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row coloring */
+}
+
+.table tr:hover {
+  background-color: #f1f1f1; /* Hover effect for rows */
+}
+
+/* Loading and No User Messages */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height for centering */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
   .table {
-    width: 100%;
-    border-collapse: collapse; /* Ensure table borders collapse nicely */
-    margin-top: 20px;
-  }
-  
-  .table th, .table td {
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #ddd; /* Ensure cells have a border */
-  }
-  
-  .table th {
-    background-color: #f4f4f4; /* Slightly gray background for header */
-  }
-  
-  .table img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Circular images */
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Alternate row coloring */
-  }
-  
-  .table tr:hover {
-    background-color: #f1f1f1; /* Hover effect for rows */
-  }
-  
-  /* Styling for the container */
-  .user-container {
-    max-width: 1200px; /* Set a max width */
-    margin: 0 auto; /* Center the container */
-    padding: 20px; /* Add some padding */
-    text-align: center; /* Center-align text */
-    margin-top:30px;
-  }
-  
-  
-  /* Responsive styling for smaller screens */
-  @media (max-width: 768px) {
-    .table {
       font-size: 14px; /* Reduce font size */
-    }
-  
-    .table img {
-      width: 40px;
-      height: 40px;
-    }
   }
-  
+  .table-wrapper{
+    min-height: 125px;
+  }
+  .table img {
+      width: 40px;
+      height: 40px; /* Smaller image size for mobile */
+  }
+
+  .btn-logout {
+      font-size: 14px; /* Adjust button font size */
+  }
+}

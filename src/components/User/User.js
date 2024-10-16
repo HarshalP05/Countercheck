@@ -138,6 +138,8 @@ const User = () => {
      
 
       {/* Teacher List */}
+      
+      <div className='table-wrapper'>
       <table className="table table-bordered mt-3">
         <thead>
           <tr>
@@ -178,7 +180,9 @@ const User = () => {
           )}
         </tbody>
       </table>
+      </div>
     </div>
+    
   );
 };
 
