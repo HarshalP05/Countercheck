@@ -163,8 +163,9 @@ h2.h2 {
   }
 
   #svgObject {
-    width: 100%;
+    width: 165vw;
     height: auto;
+    margin-top: 150px;
   }
 
   object {
@@ -212,7 +213,11 @@ h2.h2 {
     width: 80vw;
     height: 50vh;
   }
-
+  #svgObject {
+    width: 165vw;
+    height: auto;
+    margin-top: 150px;
+  }
   #popup {
     max-width: 90vw;
     width: 90vw;
