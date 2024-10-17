@@ -28,8 +28,9 @@ function Admin() {
   const navigate = useNavigate();
 
   const handleUsernav = () => {
-    navigate('/User'); 
+    window.open('/User', '_blank', 'noopener,noreferrer');
   }
+  
 
   const handleLogout = async () => {
     try {

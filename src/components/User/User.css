@@ -1,5 +1,17 @@
 /* User.css */
 
+.user-table-wrapper {
+
+  width: 100%;
+  min-height: 190px;
+  max-height: 400px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-table-wrapper .table tbody td:nth-child(1) {
+  min-width: 150px; /* Adjust the width of the "Paper no." column */
+}
 /* Styles for the Logout button */
 .btn-logout {
   background-color: #8B4513; /* Brown color */
@@ -22,6 +34,7 @@
   margin: 0 auto;    /* Center the container */
   padding: 20px;     /* Add some padding */
   text-align: center; /* Center-align text */
+
 }
 
 /* Search and filter styles */
@@ -35,6 +48,7 @@
   border-collapse: collapse; /* Ensure table borders collapse nicely */
   margin-top: 20px; /* Space above the table */
   overflow-x: auto; /* Enable horizontal scrolling if needed */
+  
 }
 
 .table th, .table td {
@@ -74,9 +88,7 @@
   .table {
       font-size: 14px; /* Reduce font size */
   }
-  .table-wrapper{
-    min-height: 125px;
-  }
+  
   .table img {
       width: 40px;
       height: 40px; /* Smaller image size for mobile */

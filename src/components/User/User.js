@@ -120,9 +120,9 @@ const User = () => {
           className="form-control mb-2"
         >
           <option value="">Filter by Department</option>
-          <option value="Department of AS&H (First Year)">Department of AS&H (First Year)</option>
+          <option value="AS&H">Department of AS&H (First Year)</option>
           <option value="Department of Computer Engineering">Department of Computer Engineering</option>
-          <option value="Department of Electronics and Telecommunication Engineering">Department of Electronics and Telecommunication Engineering</option>
+          <option value="ENTC">Department of Electronics and Telecommunication Engineering</option>
           <option value="Department of Civil Engineering">Department of Civil Engineering</option>
           <option value="Department of Mechanical Engineering">Department of Mechanical Engineering</option>
           <option value="Department of Information Technology">Department of Information Technology</option>
@@ -139,7 +139,7 @@ const User = () => {
 
       {/* Teacher List */}
       
-      <div className='table-wrapper'>
+      <div className='user-table-wrapper'>
       <table className="table table-bordered mt-3">
         <thead>
           <tr>

@@ -1,0 +1,124 @@
+/* Original CSS with matching colors and border adjustments */
+.walk-body {
+	background-color: #040118;
+	font-family: 'Arial', sans-serif;
+	color: #fff;
+  }
+  
+  :root {
+	--wcards: 4;
+	--wcardHeight: 87vh;
+	--wcardTopPadding: 1.5em;
+	--wcardMargin: 4vw;
+  }
+  
+  .walk-container {
+	width: 60%;
+	margin: 0 auto;
+  }
+  
+  #wcards {
+	list-style: none;
+	padding-left: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(var(--wcards), var(--wcardHeight));
+	gap: var(--wcardMargin);
+	padding-bottom: calc(var(--wcards) * var(--wcardTopPadding));
+	margin-bottom: var(--wcardMargin);
+  }
+  
+  #wcard1 {
+	--index: 1;
+  }
+  
+  #wcard2 {
+	--index: 2;
+  }
+  
+  #wcard3 {
+	--index: 3;
+  }
+  
+  #wcard4 {
+	--index: 4;
+  }
+  
+  .wcard {
+	position: sticky;
+	top: 0;
+	padding-top: calc(var(--index) * var(--wcardTopPadding));
+	border: 5px solid transparent; /* Match with the original HTML */
+	border-radius: 50px; /* Maintain border radius */
+  }
+  
+  #wcard1 .wcard-body,
+  #wcard2 .wcard-body,
+  #wcard3 .wcard-body,
+  #wcard4 .wcard-body {
+	background-color: #000000;
+  }
+  
+  .wcard-body {
+	box-sizing: border-box;
+	padding: 30px;
+	border-radius: 50px;
+	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+	height: var(--wcardHeight);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	transition: all 0.5s;
+	position: relative;
+  }
+  
+  .walk-container h2 {
+	font-size: 2.5em;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+  }
+  
+  .wcard p {
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	color: white;
+  }
+  
+  /* Rotating Border Animation */
+  @property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+  }
+  
+  .wcard::after, .wcard::before {
+	--angle: 0deg;
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: conic-gradient(from var(--angle), #001F3F, #0C356A, #0174BE, #B2DFEE, #d2a307, #FFC436,  #e0ab2e);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	padding: 5px;
+	border-radius: 50px;
+	animation: 10s spin linear infinite;
+  }
+  
+  .wcard::before {
+	filter: blur(5.5rem);
+	opacity: 0.5;
+  }
+  
+  @keyframes spin {
+	from {
+	  --angle: 0deg;
+	}
+	to {
+	  --angle: 360deg;
+	}
+  }
+  
