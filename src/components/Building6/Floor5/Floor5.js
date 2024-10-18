@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Floor5.css';
 import { db } from '../../../firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import Sidebar from '../../Sidebar/Sidebar'
 
 const Floor5 = () => {
   // State to hold the classrooms data
@@ -232,6 +233,7 @@ const Floor5 = () => {
 
   return (
     <div className="body">
+      
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Document</title>
@@ -240,12 +242,15 @@ const Floor5 = () => {
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         rel="stylesheet"
       />
-
+      <div className='final-floor-cont'>
+      <Sidebar />
       <div className="floorplan">
+        
         <div className="fptitles">
           <h1 className="h1">Welcome To Virtual Campus</h1>
           <h2 className="h2">Here's the 5th Floor of our Building</h2>
         </div>
+        
         <object
           id="svgObject"
           type="image/svg+xml"
@@ -290,6 +295,7 @@ const Floor5 = () => {
           </ol>
         </div>
       ))}
+    </div>
     </div>
   );
 };

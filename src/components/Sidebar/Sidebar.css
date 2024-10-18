@@ -1,0 +1,72 @@
+
+
+.floorcon {
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background: #161616;
+    z-index: 1;
+    transition: transform 0.5s ease;
+    transform: translateX(-150px); /* Hidden state */
+}
+
+.floorcon.open {
+    transform: translateX(0); /* Visible state */
+}
+
+.floorcon .head {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+ol {
+    width: 100%;
+    list-style: none;
+}
+
+ol li {
+    display: block;
+    width: 100%;
+}
+
+ol li a {
+    color: #fff;
+    padding: 15px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 2px;
+    position: relative;
+    transition: 0.3s;
+}
+
+ol li:hover {
+    background: #6890e6;
+    text-decoration: none;
+}
+
+#toggle-button {
+    position: absolute;
+    right: -40px;
+    top: 15px;
+    cursor: pointer;
+    background: #000;
+    border-radius: 5px;
+    color: #fff;
+    padding: 3px 8px;
+}
+
+#toggle-button .fas {
+    font-size: 20px;
+}
+
+.anc-bar :hover{
+   text-decoration: none !important;
+}

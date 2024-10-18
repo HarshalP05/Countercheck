@@ -12,6 +12,7 @@ import Walkthrough from './components/Walkthrough/Walkthrough';
 import Floor5 from './components/Building6/Floor5/Floor5';
 import User from './components/User/User';  // User component
 import References from './components/References/References';
+import Sidebar from './components/Sidebar/Sidebar';
 // Create a context for user details
 const UserContext = createContext();
 
@@ -105,6 +106,7 @@ function App() {
           <Route path="/Floor5" element={<Floor5 />} />
           <Route path="/Walkthrough" element={<Walkthrough />} />
           <Route path="/References" element={<References/>} />
+          <Route path="/Sidebar" element={<Sidebar/>} />
         </Routes>
       </Router>
     </UserContext.Provider>
