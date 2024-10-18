@@ -1,28 +1,33 @@
-import React , { useState }from 'react';
+import React, { useState } from 'react';
 import './FrontPage.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
 import { db } from '../../firebaseConfig';
-import { collection, addDoc, query, where, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import emailjs from 'emailjs-com'; // Import EmailJS
+import { ClipLoader } from 'react-spinners'; // Import the react-spinners loader
+
 const Home = () => {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [concern, setConcern] = useState('');
   const [queryNumber, setQueryNumber] = useState(1); // Initialize the query number
+  const [loading, setLoading] = useState(false); // Loading state for spinner
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Generate a unique ID in the format query_name_query_no
     const uniqueId = `query_${name.replace(/\s+/g, '_').toLowerCase()}_query_${queryNumber}`;
-  
+
     // Check for empty fields
     if (!phone || !name || !email || !concern) {
       alert('Please fill in all fields before submitting.');
       return; // Exit the function if any field is empty
     }
-  
+
+    setLoading(true); // Start loading spinner
+
     try {
       // Add a new document with a generated ID to Firestore
       await addDoc(collection(db, 'contacts'), {
@@ -33,7 +38,7 @@ const Home = () => {
         uniqueId,
         createdAt: new Date(), // Optional: timestamp
       });
-  
+
       // Send an email using EmailJS
       await emailjs.send('service_0isgodd', 'template_lg8kv1o', {
         phone,
@@ -42,23 +47,24 @@ const Home = () => {
         concern,
         uniqueId,
       }, 'kwWlF9HP_LQ3slrt9');
-  
+
       // Clear the form after submission
       setPhone('');
       setName('');
       setEmail('');
       setConcern('');
-  
+
       // Optionally increment the query number for the next submission
       setQueryNumber(queryNumber + 1);
-  
+
       alert('Your response has been submitted successfully, and a copy has been sent to your email!');
     } catch (error) {
       console.error('Error adding document or sending email: ', error);
       alert('There was an error submitting your response.');
     }
+
+    setLoading(false); // Stop loading spinner
   };
-  
 
   return (
     <>
@@ -98,8 +104,8 @@ const Home = () => {
           <div className="con">
             <h2 className="text-big">Tired of Error 404 Classroom NOT FOUND !!!</h2>
             <Link to="/Floor5" className="bt-link">
-            <button className="bt">Xplore Campus</button>
-          </Link>
+              <button className="bt">Xplore Campus</button>
+            </Link>
           </div>
         </div>
       </section>
@@ -145,50 +151,50 @@ const Home = () => {
       </section>
 
       <section id="contact" className="contact">
-  <h2 className="conh2">Contact Us</h2>
-  <form className="form" onSubmit={handleSubmit}>
-    <input 
-      type="text" 
-      className="form-input" 
-      name="phone" 
-      placeholder="Enter Your Phone number" 
-      value={phone} 
-      onChange={(e) => setPhone(e.target.value)} 
-      required
-    />
-    <input 
-      type="text" 
-      className="form-input" 
-      name="name" 
-      placeholder="Enter Your Name" 
-      value={name} 
-      onChange={(e) => setName(e.target.value)} 
-      required
-    />
-    <input 
-      type="text" 
-      className="form-input" 
-      name="email" 
-      placeholder="Enter Your Email" 
-      value={email} 
-      onChange={(e) => setEmail(e.target.value)} 
-      required
-    />
-    <textarea 
-      className="form-input" 
-      name="concern" 
-      cols="30" 
-      rows="10" 
-      placeholder="Please Elaborate your Concern" 
-      value={concern} 
-      onChange={(e) => setConcern(e.target.value)} 
-      required
-    />
-    <button type="submit" className="sub-btn">Submit Response</button>
-  </form>
-</section>
-
-  
+        <h2 className="conh2">Contact Us</h2>
+        <form className="form" onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            className="form-input" 
+            name="phone" 
+            placeholder="Enter Your Phone number" 
+            value={phone} 
+            onChange={(e) => setPhone(e.target.value)} 
+            required
+          />
+          <input 
+            type="text" 
+            className="form-input" 
+            name="name" 
+            placeholder="Enter Your Name" 
+            value={name} 
+            onChange={(e) => setName(e.target.value)} 
+            required
+          />
+          <input 
+            type="text" 
+            className="form-input" 
+            name="email" 
+            placeholder="Enter Your Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required
+          />
+          <textarea 
+            className="form-input" 
+            name="concern" 
+            cols="30" 
+            rows="10" 
+            placeholder="Please Elaborate your Concern" 
+            value={concern} 
+            onChange={(e) => setConcern(e.target.value)} 
+            required
+          />
+          <button type="submit" className="sub-btn" disabled={loading}>
+            {loading ? <ClipLoader size={20} color={"#ffffff"} /> : 'Submit Response'}
+          </button>
+        </form>
+      </section>
 
       <section className="footer">
         <div className="content">
@@ -236,5 +242,6 @@ const Home = () => {
     </>
   );
 };
+ 
 
 export default Home;

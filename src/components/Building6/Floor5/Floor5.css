@@ -122,6 +122,23 @@
   color: #555;
 }
 
+
+
+.popup{
+  position: absolute;
+  
+  top:15px !important;
+  flex-shrink: 3;
+}
+
+
+
+
+
+
+
+
+
 /* View Details button styling */
 .view-details-btn {
   background-color: white;
@@ -206,7 +223,16 @@ h2.h2 {
   
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 480px) {
+
+  .popup{
+    display: flex;
+    position: absolute;
+    left:0px !important;
+    right:0px;
+    top:300px !important;
+    flex-shrink: 3;
+  }
   object {
     transform: rotate(90deg);
     width: 80vw;

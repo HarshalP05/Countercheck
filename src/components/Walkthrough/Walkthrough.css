@@ -298,3 +298,22 @@
 		width: 100%;
 	}
 }
+
+/* Existing styles... */
+
+/* Change text on mobile */
+@media (max-width: 768px) {
+    .click-text::before {
+      content: "Click ";
+    }
+    .click-text {
+      display: inline; /* Show the text */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .click-text::before {
+      content: "Hover ";
+    }
+  }
+  
