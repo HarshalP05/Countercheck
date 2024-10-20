@@ -70,3 +70,9 @@ ol li:hover {
 .anc-bar :hover{
    text-decoration: none !important;
 }
+
+@media  (max-width:480px) {
+   .floorcon.open{
+    height:200%;
+   }
+}

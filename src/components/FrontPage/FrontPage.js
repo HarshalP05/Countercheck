@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect, useRef } from 'react';
 import './FrontPage.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
 import { db } from '../../firebaseConfig';
@@ -66,38 +66,61 @@ const Home = () => {
     setLoading(false); // Stop loading spinner
   };
 
+  const navbarRef = useRef(null);
+  const checkboxRef = useRef(null);
+
+  // Close navbar when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target) && checkboxRef.current) {
+        checkboxRef.current.checked = false; // Uncheck the checkbox to close the navbar
+      }
+    };
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      // Unbind the event listener on cleanup
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+
+
+
   return (
     <>
-      <section >
-        <nav className="navbar">
-          <input type="checkbox" id="check" />
-          <label htmlFor="check" className="checkbtn">
-            <i className="fas fa-bars"></i>
-          </label>
-          <div className="left-nav">
-            <label className="logo">Virtual Campus</label>
-            <img src="./images/logo.jpeg" alt="logo" className="logo-img" />
-          </div>
-          <ul>
-            <li><a className="active" href="/">Home</a></li>
-            <li><a href="https://viurtuonavi-aboutus.vercel.app/">About</a></li>
-            <li><a href="/Walkthrough" target="_blank" rel="noopener noreferrer">Walkthrough</a></li>
-            <li><a href="/feedback">Feedback</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <section>
+      <nav ref={navbarRef} className="navbar">
+        <input ref={checkboxRef} type="checkbox" id="check" />
+        <label htmlFor="check" className="checkbtn">
+          <i className="fas fa-bars"></i>
+        </label>
+        <div className="left-nav">
+          <label className="logo">Virtual Campus</label>
+          <img src="./images/logo.jpeg" alt="logo" className="logo-img" />
+        </div>
+        <ul>
+          <li><a className="active" href="/">Home</a></li>
+          <li><a href="https://viurtuonavi-aboutus.vercel.app/">About</a></li>
+          <li><a href="/Walkthrough" target="_blank" rel="noopener noreferrer">Walkthrough</a></li>
+          <li><a href="/feedback">Feedback</a></li>
+          <li><a href="#contact">Contact</a></li>
 
-            <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">User</a></li>
-            <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">Admin</a></li>
+          <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">User</a></li>
+          <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">Admin</a></li>
 
-            <li id="bx">
-              <a href="#"><i className='bx bxs-user'></i> ⮟</a>
-              <ul className="dropdown">
-                <li><a href="/login" target="_blank" rel="noopener noreferrer">User</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </section>
+          <li id="bx">
+            <a href="#"><i className='bx bxs-user'></i> ⮟</a>
+            <ul className="dropdown">
+              <li><a href="/login" target="_blank" rel="noopener noreferrer">User</a></li>
+              <li><a href="/login">Admin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </section>
 
       <section>
         <div className="Section-top back">
