@@ -13,6 +13,11 @@ import Floor5 from './components/Building6/Floor5/Floor5';
 import User from './components/User/User';  // User component
 import References from './components/References/References';
 import Sidebar from './components/Sidebar/Sidebar';
+import Floor4 from './components/Building6/Floor4/Floor4';
+import Floor3 from './components/Building6/Floor3/Floor3';
+import Floor2 from './components/Building6/Floor2/Floor2';
+import Floor1 from './components/Building6/Floor1/Floor1';
+import GroundFloor from './components/Building6/GroundFloor/GroundFloor';
 // Create a context for user details
 const UserContext = createContext();
 
@@ -103,10 +108,17 @@ function App() {
 
           {/* Other routes */}
           <Route path='/feedback' element={<Feedback />} />
-          <Route path="/Floor5" element={<Floor5 />} />
+          
           <Route path="/Walkthrough" element={<Walkthrough />} />
           <Route path="/References" element={<References/>} />
           <Route path="/Sidebar" element={<Sidebar/>} />
+          <Route path="/GroundFloor" element={<GroundFloor />} />
+          <Route path="/Floor1"  element={<Floor1 />} />
+          <Route path="/Floor2"  element={<Floor2 />} />
+          <Route path="/Floor3"  element={<Floor3 />} />
+          <Route path="/Floor4"  element={<Floor4 />} />
+          <Route path="/Floor5" element={<Floor5 />} />
+          
         </Routes>
       </Router>
     </UserContext.Provider>
