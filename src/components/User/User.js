@@ -12,7 +12,15 @@ const User = () => {
   const [searchName, setSearchName] = useState('');
   const [searchClassroom, setSearchClassroom] = useState('');
   const [filterDepartment, setFilterDepartment] = useState('');
-
+  
+  const handleHomenav = () => {
+    window.open('/', '_blank', 'noopener,noreferrer');
+  }
+  const handleFloornav = () => {
+    window.open('/Floor5', '_blank', 'noopener,noreferrer');
+  }
+  
+  
   // Handle user sign out
   const handleLogout = () => {
     auth.signOut()
@@ -129,9 +137,17 @@ const User = () => {
           <option value="Department of CSE(AIML)">Department of CSE(AIML)</option>
           <option value="Department of Computer Engineering (Regional)">Department of Computer Engineering (Regional)</option>
         </select>
+        <div className='user-button-container'>
+        <button className="btn-logout mt-3" onClick={handleHomenav}>
+         Go To Home
+      </button>
+        <button className="btn-logout mt-3" onClick={handleFloornav}>
+         Go To Xplore Campus
+      </button>
         <button className="btn-logout mt-3" onClick={handleLogout}>
         Logout
       </button>
+      </div>
       </div>
       
 

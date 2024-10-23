@@ -36,7 +36,13 @@
   text-align: center; /* Center-align text */
 
 }
-
+.user-button-container{
+  display: flex;
+  gap:10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 /* Search and filter styles */
 .search-filter {
   margin: 20px 0; /* Space around the filter section */

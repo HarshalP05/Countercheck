@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Sidebar.css'; // Make sure this path is correct
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Sidebar is open by default
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -39,7 +39,7 @@ const Sidebar = () => {
         <li><a className='anc-bar' href="/Floor3">3rd Floor</a></li>
         <li><a className='anc-bar' href="/Floor2">2nd Floor</a></li>
         <li><a className='anc-bar' href="/Floor1">1st Floor</a></li>
-        <li><a className='anc-bar' href="/Ground">Ground Floor</a></li>
+        <li><a className='anc-bar' href="/GroundFloor">Ground Floor</a></li>
         <li className="home"><a href="/"><i className="fas fa-home"></i></a></li>
         <li><a className='anc-bar' href="/User" target="_blank" rel="noopener noreferrer">Click here to access Search By Teacher Features !!</a></li>
       </ol>
