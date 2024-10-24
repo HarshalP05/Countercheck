@@ -5,6 +5,8 @@ import { db } from '../../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import emailjs from 'emailjs-com'; // Import EmailJS
 import { ClipLoader } from 'react-spinners'; // Import the react-spinners loader
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'; // Import the help icon
 
 const Home = () => {
   const [phone, setPhone] = useState('');
@@ -172,6 +174,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <div className="help-icon" onClick={() => window.location.href = '/Walkthrough'}>
+        <FontAwesomeIcon icon={faQuestionCircle} size="2x" />
+      </div>
 
       <section id="contact" className="contact">
         <h2 className="conh2">Contact Us</h2>
@@ -218,6 +223,7 @@ const Home = () => {
           </button>
         </form>
       </section>
+
 
       <section className="footer">
         <div className="content">

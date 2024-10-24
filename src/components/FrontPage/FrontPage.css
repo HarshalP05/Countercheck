@@ -525,3 +525,29 @@ footer a:hover {
     width: 80px;
     height: 20px;
 }
+
+
+
+.help-icon {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    background-color:#090948; /* Change color as needed */
+    color: white; /* Icon color */
+    border-radius: 50%; /* Circular shape */
+    padding: 10px; /* Spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .help-icon:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  @media (max-width: 768px) {
+    .help-icon {
+      bottom: 10px; /* Adjust for mobile */
+      right: 10px; /* Adjust for mobile */
+    }
+  }
