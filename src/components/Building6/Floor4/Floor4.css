@@ -110,7 +110,7 @@
 }
 
 .popup a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .popup img {

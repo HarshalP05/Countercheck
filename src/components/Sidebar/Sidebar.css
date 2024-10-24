@@ -48,8 +48,13 @@ ol li a {
 }
 
 ol li:hover {
-    background: #6890e6;
+    background: #fff;
+    color: #161616;
     text-decoration: none;
+}
+ol li:hover a {
+    text-decoration: none; /* Ensure underline is removed on hover */
+    color: #161616; /* Change color on hover if needed */
 }
 
 #toggle-button {
