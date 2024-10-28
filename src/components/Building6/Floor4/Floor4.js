@@ -255,7 +255,7 @@ const Floor4 = () => {
           id="svgObject"
           type="image/svg+xml"
           data="../../images/Bldg6Floor4.svg"
-          aria-label="Building 6 Floor 5 SVG"
+          aria-label="Building 6 Floor 4 SVG"
         >
           <p>Your browser does not support SVGs. Consider updating your browser for a better experience.</p>
         </object>
