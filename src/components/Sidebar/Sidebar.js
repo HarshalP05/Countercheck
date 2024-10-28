@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Sidebar.css'; // Make sure this path is correct
+import './Sidebar.css'; // Ensure this path is correct
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true); // Sidebar is open by default
+  // Set initial state based on screen width
+  const [isOpen, setIsOpen] = useState(window.innerWidth >= 768); // Closed on mobile by default
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -25,6 +26,28 @@ const Sidebar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
+
+  // Handle screen resizing for responsiveness
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsOpen(false); // Close sidebar on smaller screens
+      } else {
+        setIsOpen(true); // Open sidebar on larger screens
+      }
+    };
+
+    // Attach event listener for resize
+    window.addEventListener('resize', handleResize);
+
+    // Call once on component mount
+    handleResize();
+
+    return () => {
+      // Remove event listener on cleanup
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div ref={sidebarRef} className={`floorcon ${isOpen ? 'open' : ''}`}>
