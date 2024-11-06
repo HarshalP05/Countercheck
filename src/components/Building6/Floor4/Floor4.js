@@ -13,6 +13,7 @@ const Floor4 = () => {
       description: 'This is Classroom 6401CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 2,
@@ -20,68 +21,74 @@ const Floor4 = () => {
       description: 'This is Classroom 6402CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 3,
-      name: '6403TU', // Another classroom with a unique name format
-      description: 'This is Tutorial Room 6403TU',
-      roomtitle: "Classroom Timetable is as Follows:-",
+      name: '6403', // Another classroom with a unique name format
+      description: 'Departmental Library',
+      roomtitle: "",
       faculties: [],
     },
 
     {
       id: 4,
-      name: '6404LA', // Another classroom with a unique name format
+      name: '6404FC', // Another classroom with a unique name format
       description: 'Faculties available in the lab are:-',
       roomtitle: "",
       faculties: [],
     },
     {
       id: 5,
-      name: '6405LA', // Another classroom with a unique name format
+      name: '6405CR', // Another classroom with a unique name format
       description: 'Faculties available in the lab are:-',
       roomtitle: "Language Lab",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 6,
-      name: '6406LA', // Keeping the original name format
+      name: '6406CR', // Keeping the original name format
       roomtitle: "Faculties available in the lab are:-",
       description: 'This is The Basic Electrical And Electronics Lab (BEE)',
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 7,
       name: '6407LA', // Example classroom with its own format
-      description: 'This is  6407LA',
+      description: 'Chemistry Lab-1',
+      roomtitle:'Faculties available in the lab are:-',
       faculties: [],
     },
     {
       id: 8,
       name: '6408LA', // Another classroom with a unique name format
-      description: 'Faculties available in the lab are:-',
-      roomtitle: "EM LAB",
+      description: 'Chemistry Lab-2',
+      roomtitle: "Faculties available in the lab are:-",
       faculties: [],
     },
     {
       id: 9,
-      name: '609CR', // Another classroom with a unique name format
+      name: '6409CR', // Another classroom with a unique name format
       description: 'This is Classroom 6409CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 10,
-      name: '6410CR', // Another classroom with a unique name format
-      description: 'This is Classroom 6410CR',
-      roomtitle: "Classroom Timetable is as Follows:-",
+      name: '6410FC', // Another classroom with a unique name format
+      description: 'This is Faculty Cabin',
+      roomtitle: "Faculties available  are:-",
       faculties: [],
+      
     },
     {
       id: 11,
       name: '6411FC', // Another classroom with a unique name format
-      description: '',
-      roomtitle: "FACULTY CABIN",
+      description: 'FACULTY CABIN',
+      roomtitle: "",
       faculties: [],
     },
     {
@@ -101,8 +108,8 @@ const Floor4 = () => {
     {
       id: 14,
       name: '6414FC', // Another classroom with a unique name format
-      description: '',
-      roomtitle: "FACULTY CABIN",
+      description: 'FACULTY CABIN',
+      roomtitle: "",
       faculties: [],
     },
     {
@@ -111,34 +118,36 @@ const Floor4 = () => {
       description: 'This is Classroom 6415CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
 
     {
       id: 16,
-      name: '6416HO', // Another classroom with a unique name format
-      description: 'Applied Science And Humanities',
-      roomtitle: "HOD CABIN",
+      name: '6416CR', // Another classroom with a unique name format
+      description: 'This is Classroom 6416CR',
+      roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 17,
       name: '6417LA', // Another classroom with a unique name format
-      description: '',
+      description: 'Engg. Physics Lab-1',
       roomtitle: "",
       faculties: [],
     },
     {
       id: 18,
       name: '6418LA', // Another classroom with a unique name format
-      description: '',
+      description: 'Engg. Physics Lab-2',
       roomtitle: "",
       faculties: [],
     },
     {
       id: 19,
-      name: '6419LA', // Another classroom with a unique name format
-      description: '',
-      roomtitle: "",
+      name: '6419', // Another classroom with a unique name format
+      description: 'Engg. Physics Lab-2',
+      roomtitle: "DARK ROOM",
       faculties: [],
     },
 
@@ -148,156 +157,237 @@ const Floor4 = () => {
 
   ]);
 
-  // Function to fetch faculties for a specific classroom from Firebase
-  const fetchClassroomFaculties = async (classroomName) => {
-    // Extract the numeric portion from the classroom name (e.g., '6406' from '6406LA')
-    const numericClassroom = classroomName.match(/\d+/)[0]; // Extract digits
+// Function to fetch faculties for a specific classroom from Firebase
+const fetchClassroomFaculties = async (classroomName) => {
+  // Extract the numeric portion from the classroom name (e.g., '6506' from '6506LA')
+  const numericClassroom = classroomName.match(/\d+/)[0]; // Extract digits
 
-    const q = query(
-      collection(db, 'teachers'),
-      where('classroom', '==', numericClassroom) // Query based on numeric classroom value
+  const q = query(
+    collection(db, 'teachers'),
+    where('classroom', '==', numericClassroom) // Query based on numeric classroom value
+  );
+
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map((doc) => ({
+    name: doc.data().name,
+    link: doc.data().personalWebsite,
+    img: doc.data().imageLink,
+  }));
+};
+
+// Fetch data from Firebase and update classrooms state
+useEffect(() => {
+  const loadClassroomData = async () => {
+    const updatedClassrooms = await Promise.all(
+      classrooms.map(async (classroom) => {
+        const faculties = await fetchClassroomFaculties(classroom.name);
+        return { ...classroom, faculties };
+      })
     );
-
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => ({
-      name: doc.data().name,
-      link: doc.data().personalWebsite,
-      img: doc.data().imageLink,
-    }));
+    setClassrooms(updatedClassrooms);
   };
 
-  // Fetch data from Firebase and update classrooms state
-  useEffect(() => {
-    const loadClassroomData = async () => {
-      const updatedClassrooms = await Promise.all(
-        classrooms.map(async (classroom) => {
-          const faculties = await fetchClassroomFaculties(classroom.name);
-          return { ...classroom, faculties };
-        })
-      );
-      setClassrooms(updatedClassrooms);
-    };
+  loadClassroomData();
+}, []); // Run only on mount
 
-    loadClassroomData();
-  }, []); // Run only on mount
+useEffect(() => {
+  const svgObject = document.getElementById('svgObject');
 
-  useEffect(() => {
-    const svgObject = document.getElementById('svgObject');
+  const handleSvgLoad = () => {
+    const svgDocument = svgObject.contentDocument;
 
-    const handleSvgLoad = () => {
-      const svgDocument = svgObject.contentDocument;
+    classrooms.forEach(({ id }) => {
+      const referElement = svgDocument.getElementById(`refer${id}`);
+      const popup = document.getElementById(`popup${id}`);
+      const popupClose = popup.querySelector('.popupClose');
 
-      classrooms.forEach(({ id }) => {
-        const referElement = svgDocument.getElementById(`refer${id}`);
-        const popup = document.getElementById(`popup${id}`);
-        const popupClose = popup.querySelector('.popupClose');
+      if (referElement && popup) {
+        referElement.addEventListener('click', () => {
+          const svgRect = referElement.getBoundingClientRect();
+          popup.style.left = `${svgRect.left}px`;
+          popup.style.top = `${svgRect.bottom + window.scrollY}px`;
+          popup.style.display = 'block';
+        });
 
-        if (referElement && popup) {
-          referElement.addEventListener('click', () => {
-            const svgRect = referElement.getBoundingClientRect();
-            popup.style.left = `${svgRect.left}px`;
-            popup.style.top = `${svgRect.bottom + window.scrollY}px`;
-            popup.style.display = 'block';
-          });
-
-          // Close popup when close button is clicked
-          popupClose.addEventListener('click', () => {
-            popup.style.display = 'none';
-          });
-        }
-      });
-    };
-
-    const handleClickOutside = (event) => {
-      classrooms.forEach(({ id }) => {
-        const popup = document.getElementById(`popup${id}`);
-        if (popup && !popup.contains(event.target) && event.target.id !== `refer${id}`) {
+        // Close popup when close button is clicked
+        popupClose.addEventListener('click', () => {
           popup.style.display = 'none';
-        }
-      });
-    };
-
-    if (svgObject) {
-      svgObject.addEventListener('load', handleSvgLoad);
-    }
-
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      if (svgObject) {
-        svgObject.removeEventListener('load', handleSvgLoad);
+        });
       }
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [classrooms]);
+    });
+  };
 
-  return (
-    <div className="body">
+  const handleClickOutside = (event) => {
+    classrooms.forEach(({ id }) => {
+      const popup = document.getElementById(`popup${id}`);
+      if (popup && !popup.contains(event.target) && event.target.id !== `refer${id}`) {
+        popup.style.display = 'none';
+      }
+    });
+  };
+
+  if (svgObject) {
+    svgObject.addEventListener('load', handleSvgLoad);
+  }
+
+  document.addEventListener('click', handleClickOutside);
+
+  return () => {
+    if (svgObject) {
+      svgObject.removeEventListener('load', handleSvgLoad);
+    }
+    document.removeEventListener('click', handleClickOutside);
+  };
+}, [classrooms]);
+
+return (
+  <div className="body">
+    
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {/* Bootstrap CSS */}
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <div className='final-floor-cont'>
+    <Sidebar />
+    <div className="floorplan">
       
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
-      {/* Bootstrap CSS */}
-      <link
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        rel="stylesheet"
-      />
-      <div className='final-floor-cont'>
-      <Sidebar />
-      <div className="floorplan">
-        
-        <div className="fptitles">
-          <h1 className="h1">Welcome To Virtual Campus</h1>
-          <h2 className="h2">Here's the 4th Floor of our Building</h2>
-        </div>
-        
-        <object
-          id="svgObject"
-          type="image/svg+xml"
-          data="../../images/Bldg6Floor4.svg"
-          aria-label="Building 6 Floor 4 SVG"
-        >
-          <p>Your browser does not support SVGs. Consider updating your browser for a better experience.</p>
-        </object>
+      <div className="fptitles">
+        <h1 className="h1">Welcome To Virtual Campus</h1>
+        <h2 className="h2">Here's the 4th Floor of our Building</h2>
       </div>
+      
+      <object
+        id="svgObject"
+        type="image/svg+xml"
+        data="/images/Floorplans/Bldg6Floor4.svg"
+        aria-label="Building 6 Floor 4 SVG"
+      >
+        <p>Your browser does not support SVGs. Consider updating your browser for a better experience.</p>
+      </object>
+    </div>
 
-      {/* Render popups dynamically */}
-      {classrooms.map(({ id, name, roomtitle, description, faculties }) => (
-        <div
-          key={id}
-          id={`popup${id}`}
-          className="popup p-3 border rounded shadow"
-          style={{ display: 'none', position: 'absolute', backgroundColor: 'white' }}
+    {/* Render popups dynamically */}
+    {classrooms.map(({ id, name, roomtitle, description, showTimetableOnly, faculties }) => (
+<div
+  key={id}
+  id={`popup${id}`}
+  className="popup p-3 border rounded shadow"
+  style={{ display: 'none', position: 'absolute', backgroundColor: 'white' }}
+>
+  <div className="popup-header">
+    <h5 className="popup-title">{name}</h5>
+    <span className="popupClose close">×</span>
+  </div>
+
+  {showTimetableOnly ? ( 
+    // Show only timetable image
+    <>
+      <p>{description}</p>
+      <p>{roomtitle}</p>
+      <div className="tt-cont">
+        <img
+          alt="Timetable"
+          className="timetable-image"
+          src={`/images/floor4timetables/${name}.jpg`}
+        />
+        <a
+          href={`/images/floor4timetables/${name}.jpg`} // Path to the timetable image
+          download={`${name}-timetable.jpg`} // Set the filename to be downloaded
+          className="view-details-btn"
         >
-          <div className="popup-header">
-            <h5 className="popup-title">{name}</h5>
-            <span className="popupClose close">×</span>
-          </div>
-          <div className='poptitle'>
-            <p>{description}</p>
-            <p>{roomtitle}</p>
-          </div>
-          <ol>
-            {faculties.map((faculty, index) => (
-              <li key={index}>
-                <img alt="facultyimage" className='fimage' src={faculty.img} />
-                {faculty.name}{' '}
-                <a
-                  href={faculty.link}
-                  className="view-details-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Details
-                </a>
-              </li>
-            ))}
-          </ol>
+          Download Timetable
+        </a>
+      </div>
+    </>
+  ) : ( 
+    // Show full details with the "View Timetable" button for additional popup
+    <>
+      <p>{description}</p>
+      <p>{roomtitle}</p>
+      <div className='popup-btn-cont'>
+      <button
+        onClick={() => {
+          const timetablePopup = document.getElementById(`timetablePopup${id}`);
+          if (timetablePopup) {
+            timetablePopup.style.display = 'block';
+          }
+        }}
+        className="view-details-btn"
+      >
+        View Timetable
+      </button></div>
+      
+      {faculties && (
+        <ol className="faculty-grid">
+          {faculties.map((faculty, index) => (
+            <li key={index} className="faculty-item">
+              <div className="fc-cont">
+                <img alt="facultyimage" className="fimage" src={faculty.img} />
+                <div className="faculty-details">
+                  <p>{faculty.name}</p>
+                  <a
+                    href={faculty.link}
+                    className="view-details-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Details
+                  </a>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      )}
+      
+      {/* Additional popup for viewing the timetable */}
+      <div
+        id={`timetablePopup${id}`}
+        className="popup p-3 border rounded shadow"
+        style={{ display: 'none', position: 'absolute', backgroundColor: 'white' }}
+      >
+        <div className="popup-header">
+          <h5 className="popup-title">{name} - Timetable</h5>
+          <span
+            className="popupClose close"
+            onClick={() => {
+              const timetablePopup = document.getElementById(`timetablePopup${id}`);
+              if (timetablePopup) {
+                timetablePopup.style.display = 'none';
+              }
+            }}
+          >
+            ×
+          </span>
         </div>
-      ))}
-    </div>
-    </div>
-  );
+        <div className="tt-cont">
+          <img
+            alt="Timetable"
+            className="timetable-image"
+            src={`/images/floor4timetables/${name}.jpg`}
+          />
+          <a
+        href={`/images/floor4timetables/${name}.jpg`} // Path to the timetable image
+        download={`${name}-timetable.jpg`} // Set the filename to be downloaded
+        className="view-details-btn"
+      >
+        Download Timetable
+      </a>
+        </div>
+      </div>
+    </>
+  )}
+</div>
+))}
+
+
+  </div>
+  </div>
+);
 };
 
 export default Floor4;

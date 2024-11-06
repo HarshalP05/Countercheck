@@ -255,7 +255,7 @@ const Floor2 = () => {
           id="svgObject"
           type="image/svg+xml"
            data="../../../images/UnderConstruction.svg"
-          aria-label="Building 6 Floor 2 SVG"
+          aria-label="Building 6 Floor 2 SVG" style={{ transform: 'rotate(0deg)' }}
         >
           <p>Your browser does not support SVGs. Consider updating your browser for a better experience.</p>
         </object>

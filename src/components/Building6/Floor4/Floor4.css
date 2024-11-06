@@ -258,3 +258,123 @@ h2.h2 {
 
 }
 
+/* Timetable Image Styling */
+.timetable-image {
+  width: 100%;
+  max-width: 400px; /* Limit max width for larger screens */
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+/* Adjustments for tablets */
+@media only screen and (max-width: 768px) {
+  .timetable-image {
+    max-width: 300px; /* Slightly smaller on tablets */
+  }
+}
+
+/* Adjustments for mobile */
+@media only screen and (max-width: 480px) {
+  .timetable-image {
+    max-width: 90vw; /* Scale image to viewport width on smaller screens */
+    height: auto;
+    border-radius: 5px; /* Slightly smaller rounding */
+    margin: 5px 0;
+  }
+}
+
+
+
+
+.fc-cont{
+  display: flex;
+}
+
+/* Grid layout for the faculty list */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 3fr); /* 3 columns in a row */
+  gap: 20px; /* Space between each grid item */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* For each faculty item */
+.faculty-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+/* Styling for faculty image */
+.fimage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  margin-bottom: 10px;
+}
+
+/* Faculty name and details section */
+.faculty-details {
+  margin-top: 10px;
+}
+
+.faculty-details p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Button styling */
+.view-details-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.view-details-btn:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .faculty-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .faculty-grid {
+    grid-template-columns: 1fr; /* 1 column for small screens */
+  }
+}
+
+
+.tt-cont{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+
+
+
+
+
+

@@ -5,62 +5,66 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import Sidebar from '../../Sidebar/Sidebar'
 
 const Floor5 = () => {
-  // State to hold the classrooms data
+  // classrooms data
   const [classrooms, setClassrooms] = useState([
     {
       id: 1,
-      name: '6501CR', // Another classroom with a unique name format
+      name: '6501CR', 
       description: 'This is Classroom 6501CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 2,
-      name: '6502CR', // Another classroom with a unique name format
+      name: '6502CR', 
       description: 'This is Classroom 6502CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 3,
-      name: '6503TU', // Another classroom with a unique name format
+      name: '6503TU', 
       description: 'This is Tutorial Room 6503TU',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      
     },
 
     {
       id: 4,
-      name: '6504LA', // Another classroom with a unique name format
+      name: '6504LA', 
       description: 'Faculties available in the lab are:-',
-      roomtitle: "",
+      roomtitle: "Language Laboratory-I",
       faculties: [],
     },
     {
       id: 5,
-      name: '6505LA', // Another classroom with a unique name format
+      name: '6505LA', 
       description: 'Faculties available in the lab are:-',
-      roomtitle: "Language Lab",
+      roomtitle: "Language Laboratory-II",
       faculties: [],
     },
     {
       id: 6,
-      name: '6506LA', // Keeping the original name format
+      name: '6506LA', 
       roomtitle: "Faculties available in the lab are:-",
-      description: 'This is The Basic Electrical And Electronics Lab (BEE)',
+      description: ' Basic Electrical Engineering Lab',
       faculties: [],
     },
     {
       id: 7,
       name: '6507LA', // Example classroom with its own format
-      description: 'This is  6507LA',
+      description: 'Electrical Machines Lab',
+      roomtitle: "Faculties available in the lab are:-",
       faculties: [],
     },
     {
       id: 8,
       name: '6508LA', // Another classroom with a unique name format
-      description: 'Faculties available in the lab are:-',
-      roomtitle: "EM LAB",
+      description: 'This is Basic Electronics Lab ',
+      roomtitle: "Faculties available in the lab are:-",
       faculties: [],
     },
     {
@@ -69,19 +73,21 @@ const Floor5 = () => {
       description: 'This is Classroom 6509CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 10,
-      name: '65010CR', // Another classroom with a unique name format
+      name: '6510CR', // Another classroom with a unique name format
       description: 'This is Classroom 6510CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 11,
       name: '6511FC', // Another classroom with a unique name format
-      description: '',
-      roomtitle: "FACULTY CABIN",
+      description: 'FACULTY CABIN',
+      roomtitle: "",
       faculties: [],
     },
     {
@@ -90,6 +96,7 @@ const Floor5 = () => {
       description: 'This is Mens Washroom',
       roomtitle: "",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 13,
@@ -97,6 +104,7 @@ const Floor5 = () => {
       description: 'This is Ladies Washroom',
       roomtitle: "",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 14,
@@ -104,6 +112,7 @@ const Floor5 = () => {
       description: '',
       roomtitle: "FACULTY CABIN",
       faculties: [],
+      showTimetableOnly: true,
     },
     {
       id: 15,
@@ -111,6 +120,7 @@ const Floor5 = () => {
       description: 'This is Classroom 6515CR',
       roomtitle: "Classroom Timetable is as Follows:-",
       faculties: [],
+      showTimetableOnly: true,
     },
 
     {
@@ -123,21 +133,21 @@ const Floor5 = () => {
     {
       id: 17,
       name: '6517LA', // Another classroom with a unique name format
-      description: '',
+      description: 'Artificial Intelligence Laboratory',
       roomtitle: "",
       faculties: [],
     },
     {
       id: 18,
       name: '6518LA', // Another classroom with a unique name format
-      description: '',
+      description: 'Algorithms Laboratory',
       roomtitle: "",
       faculties: [],
     },
     {
       id: 19,
       name: '6519LA', // Another classroom with a unique name format
-      description: '',
+      description: 'Programming Lab-1',
       roomtitle: "",
       faculties: [],
     },
@@ -147,7 +157,7 @@ const Floor5 = () => {
 
 
   ]);
-
+  
   // Function to fetch faculties for a specific classroom from Firebase
   const fetchClassroomFaculties = async (classroomName) => {
     // Extract the numeric portion from the classroom name (e.g., '6506' from '6506LA')
@@ -254,7 +264,7 @@ const Floor5 = () => {
         <object
           id="svgObject"
           type="image/svg+xml"
-          data="/images/Bldg6Floor5.svg"
+          data="/images/Floorplans/Bldg6Floor5.svg"
           aria-label="Building 6 Floor 5 SVG"
         >
           <p>Your browser does not support SVGs. Consider updating your browser for a better experience.</p>
@@ -262,39 +272,120 @@ const Floor5 = () => {
       </div>
 
       {/* Render popups dynamically */}
-      {classrooms.map(({ id, name, roomtitle, description, faculties }) => (
+      {classrooms.map(({ id, name, roomtitle, description, showTimetableOnly, faculties }) => (
+  <div
+    key={id}
+    id={`popup${id}`}
+    className="popup p-3 border rounded shadow"
+    style={{ display: 'none', position: 'absolute', backgroundColor: 'white' }}
+  >
+    <div className="popup-header">
+      <h5 className="popup-title">{name}</h5>
+      <span className="popupClose close">×</span>
+    </div>
+
+    {showTimetableOnly ? ( 
+      // Show only timetable image
+      <>
+        <p>{description}</p>
+        <p>{roomtitle}</p>
+        <div className="tt-cont">
+          <img
+            alt="Timetable"
+            className="timetable-image"
+            src={`/images/floor5timetables/${name}.jpg`}
+          />
+          <a
+            href={`/images/floor5timetables/${name}.jpg`} // Path to the timetable image
+            download={`${name}-timetable.jpg`} // Set the filename to be downloaded
+            className="view-details-btn"
+          >
+            Download Timetable
+          </a>
+        </div>
+      </>
+    ) : ( 
+      // Show full details with the "View Timetable" button for additional popup
+      <>
+        <p>{description}</p>
+        <p>{roomtitle}</p>
+        <div className='popup-btn-cont'>
+        <button
+          onClick={() => {
+            const timetablePopup = document.getElementById(`timetablePopup${id}`);
+            if (timetablePopup) {
+              timetablePopup.style.display = 'block';
+            }
+          }}
+          className="view-details-btn"
+        >
+          View Timetable
+        </button></div>
+        
+        {faculties && (
+          <ol className="faculty-grid">
+            {faculties.map((faculty, index) => (
+              <li key={index} className="faculty-item">
+                <div className="fc-cont">
+                  <img alt="facultyimage" className="fimage" src={faculty.img} />
+                  <div className="faculty-details">
+                    <p>{faculty.name}</p>
+                    <a
+                      href={faculty.link}
+                      className="view-details-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        )}
+        
+        {/* Additional popup for viewing the timetable */}
         <div
-          key={id}
-          id={`popup${id}`}
+          id={`timetablePopup${id}`}
           className="popup p-3 border rounded shadow"
           style={{ display: 'none', position: 'absolute', backgroundColor: 'white' }}
         >
           <div className="popup-header">
-            <h5 className="popup-title">{name}</h5>
-            <span className="popupClose close">×</span>
+            <h5 className="popup-title">{name} - Timetable</h5>
+            <span
+              className="popupClose close"
+              onClick={() => {
+                const timetablePopup = document.getElementById(`timetablePopup${id}`);
+                if (timetablePopup) {
+                  timetablePopup.style.display = 'none';
+                }
+              }}
+            >
+              ×
+            </span>
           </div>
-          <div className='poptitle'>
-            <p>{description}</p>
-            <p>{roomtitle}</p>
+          <div className="tt-cont">
+            <img
+              alt="Timetable"
+              className="timetable-image"
+              src={`/images/floor5timetables/${name}.jpg`}
+            />
+            <a
+          href={`/images/floor5timetables/${name}.jpg`} // Path to the timetable image
+          download={`${name}-timetable.jpg`} // Set the filename to be downloaded
+          className="view-details-btn"
+        >
+          Download Timetable
+        </a>
           </div>
-          <ol>
-            {faculties.map((faculty, index) => (
-              <li key={index}>
-                <img alt="facultyimage" className='fimage' src={faculty.img} />
-                {faculty.name}{' '}
-                <a
-                  href={faculty.link}
-                  className="view-details-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Details
-                </a>
-              </li>
-            ))}
-          </ol>
         </div>
-      ))}
+      </>
+    )}
+  </div>
+))}
+
+
     </div>
     </div>
   );
