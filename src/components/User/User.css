@@ -81,26 +81,87 @@
   background-color: #f1f1f1; /* Hover effect for rows */
 }
 
-/* Loading and No User Messages */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full height for centering */
+
+
+/* Mobile grid view */
+@media (max-width: 768px) {
+  .user-mobile-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .user-mob-card {
+    background-color: #f8f9fa;
+    border: 3px solid #202202;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-mob-card:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.7); /* Blue glow */
+  }
+
+  .user-mob-image {
+    border: 3px solid #007bff;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .user-mob-details {
+    font-size: 14px;
+  }
+
+  .user-mob-details h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .user-mob-details p {
+    margin: 5px 0;
+  }
+
+  .user-mob-link {
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .user-mob-link:hover {
+    text-decoration: underline;
+  }
+
+  .user-table-wrapper {
+    display: none; /* Hide the table on mobile screens */
+  }
 }
 
-/* Responsive styling for smaller screens */
-@media (max-width: 768px) {
-  .table {
-      font-size: 14px; /* Reduce font size */
+@media (min-width: 769px) {
+  .user-mobile-grid {
+    display: none; /* Hide the mobile grid on larger screens */
   }
-  
-  .table img {
-      width: 40px;
-      height: 40px; /* Smaller image size for mobile */
-  }
+}
 
-  .btn-logout {
-      font-size: 14px; /* Adjust button font size */
-  }
+.intro-cont{
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

@@ -231,7 +231,7 @@ nav ul li a:hover {
     box-shadow: 0 0 50px #6176fa;
 }
 
-.contact{
+.feedback{
     background-color: rgb(222, 222, 218);
     height: 650px;
     font-family: 'Varela Round', sans-serif;
@@ -343,7 +343,7 @@ footer a:hover {
 
 .footer-contact {
     text-align: left;
-    max-width: 400px; /* Limit the width of contact info */
+    max-width: 400px; /* Limit the width of feedback info */
 }
 
 .virtu{

@@ -7,7 +7,6 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Admin from './components/Admin/Admin'; // Admin component
 import FrontPage from './components/FrontPage/FrontPage'; // FrontPage component
-import Feedback from './components/Feedback/Feedback';
 import Walkthrough from './components/Walkthrough/Walkthrough';
 import Floor5 from './components/Building6/Floor5/Floor5';
 import User from './components/User/User';  // User component
@@ -18,6 +17,8 @@ import Floor3 from './components/Building6/Floor3/Floor3';
 import Floor2 from './components/Building6/Floor2/Floor2';
 import Floor1 from './components/Building6/Floor1/Floor1';
 import GroundFloor from './components/Building6/GroundFloor/GroundFloor';
+import ContactUs from './components/ContactUs/ContactUs';
+
 // Create a context for user details
 const UserContext = createContext();
 
@@ -107,8 +108,8 @@ function App() {
           />
 
           {/* Other routes */}
-          <Route path='/feedback' element={<Feedback />} />
-          
+          <Route path='/ContactUs' element={<ContactUs />} />
+         
           <Route path="/Walkthrough" element={<Walkthrough />} />
           <Route path="/References" element={<References/>} />
           <Route path="/Sidebar" element={<Sidebar/>} />

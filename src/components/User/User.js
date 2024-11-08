@@ -101,7 +101,8 @@ const User = () => {
 
   // Render the UI when user is authenticated and teachers data is fetched
   return (
-    <div className="container vh-100 d-flex flex-column justify-content-center align-items-center user-container">
+    <div className="container vh-100 d-flex flex-column  user-container">
+      <div className='intro-cont'>
       <h1>Hello, {userDetails.name}!</h1>
       <h2 className="mt-4"> PRESENTING YOU THE SEARCH FEATURE</h2>
       
@@ -149,7 +150,7 @@ const User = () => {
       </button>
       </div>
       </div>
-      
+      </div>
 
      
 
@@ -196,6 +197,26 @@ const User = () => {
           )}
         </tbody>
       </table>
+      </div>
+      <div className="user-mobile-grid">
+        {filteredTeachers.length > 0 ? (
+          filteredTeachers.map(teacher => (
+            <div key={teacher.id} className="user-mob-card">
+              <img src={teacher.imageLink} alt={teacher.name} className="user-mob-image" />
+              <div className="user-mob-details">
+                <h3>{teacher.name}</h3>
+                <p><strong>Designation:</strong> {teacher.designation}</p>
+                <p><strong>Department:</strong> {teacher.department}</p>
+                <p><strong>Classroom:</strong> {teacher.classroom}</p>
+                <p><strong>Days Available:</strong> {teacher.daysAvailable}</p>
+                <p><strong>Floor:</strong> {teacher.floor}</p>
+                <a href={teacher.personalWebsite} target="_blank" rel="noopener noreferrer" className="user-mob-link">Visit Website</a>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-center">No teachers available</p>
+        )}
       </div>
     </div>
     

@@ -12,18 +12,18 @@ const Home = () => {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [concern, setConcern] = useState('');
+  const [feedback, setFeedback] = useState('');
   const [queryNumber, setQueryNumber] = useState(1); // Initialize the query number
   const [loading, setLoading] = useState(false); // Loading state for spinner
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Generate a unique ID in the format query_name_query_no
-    const uniqueId = `query_${name.replace(/\s+/g, '_').toLowerCase()}_query_${queryNumber}`;
+    // Generate a unique ID in the format feedback_name_feedback_no
+    const uniqueId = `feedback_${name.replace(/\s+/g, '_').toLowerCase()}_feedback_${queryNumber}`;
 
     // Check for empty fields
-    if (!phone || !name || !email || !concern) {
+    if (!phone || !name || !email || !feedback) {
       alert('Please fill in all fields before submitting.');
       return; // Exit the function if any field is empty
     }
@@ -32,21 +32,21 @@ const Home = () => {
 
     try {
       // Add a new document with a generated ID to Firestore
-      await addDoc(collection(db, 'contacts'), {
+      await addDoc(collection(db, 'feedback'), {
         phone,
         name,
         email,
-        concern,
+        feedback,
         uniqueId,
         createdAt: new Date(), // Optional: timestamp
       });
 
       // Send an email using EmailJS
-      await emailjs.send('service_0isgodd', 'template_lg8kv1o', {
+      await emailjs.send('service_2zge616', 'template_f8opq3v', {
         phone,
         name,
         email,
-        concern,
+        feedback,
         uniqueId,
       }, 'kwWlF9HP_LQ3slrt9');
 
@@ -54,7 +54,7 @@ const Home = () => {
       setPhone('');
       setName('');
       setEmail('');
-      setConcern('');
+      setFeedback('');
 
       // Optionally increment the query number for the next submission
       setQueryNumber(queryNumber + 1);
@@ -107,8 +107,8 @@ const Home = () => {
           <li><a className="active" href="/">Home</a></li>
           <li><a href="https://viurtuonavi-aboutus.vercel.app/">About</a></li>
           <li><a href="/Walkthrough" target="_blank" rel="noopener noreferrer">Walkthrough</a></li>
-          <li><a href="/feedback">Feedback</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#feedback">Feedback</a></li>
+          <li><a href="/ContactUs">Contact</a></li>
 
           <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">User</a></li>
           <li id="visible"><a href="/login" target="_blank" rel="noopener noreferrer">Admin</a></li>
@@ -178,8 +178,8 @@ const Home = () => {
         <FontAwesomeIcon icon={faQuestionCircle} size="2x" />
       </div>
 
-      <section id="contact" className="contact">
-        <h2 className="conh2">Contact Us</h2>
+      <section id="feedback" className="feedback">
+        <h2 className="conh2">We'd Love Your Feedback</h2>
         <form className="form" onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -210,12 +210,12 @@ const Home = () => {
           />
           <textarea 
             className="form-input" 
-            name="concern" 
+            name="feedback" 
             cols="30" 
             rows="10" 
-            placeholder="Please Elaborate your Concern" 
-            value={concern} 
-            onChange={(e) => setConcern(e.target.value)} 
+            placeholder="Your Feedback" 
+            value={feedback} 
+            onChange={(e) => setFeedback(e.target.value)} 
             required
           />
           <button type="submit" className="sub-btn" disabled={loading}>
